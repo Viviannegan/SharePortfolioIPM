@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package tp10.metier;
 
 import java.text.NumberFormat;
@@ -23,16 +20,16 @@ public class ActionCompliquee extends Action {
     
     @Override
     public float valeur(Jour j) {
-        float total;
+        double total;
         
         total = 0;
         
          // parcours des clefs
         for(ActionSimple act : this.tblComposition.keySet()) {
             total = total + 
-                    (act.valeur(j) * this.tblComposition.get(act).getPourcentage());
+                    (act.valeur(j) * (double)this.tblComposition.get(act).getPourcentage());
         }
-        return total;
+        return (float)total;
     }
     
     public void enrgProportion(ActionSimple as, float pourcentage) {
